@@ -19,7 +19,7 @@ a{color:var(--p)}
 .nav a{text-decoration:none;color:var(--mut);font-weight:700}
 .nav a:hover{color:var(--p)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:999px;font:800 1rem Nunito,sans-serif;text-decoration:none;border:2px solid transparent;background:var(--p);color:#fff;cursor:pointer;transition:transform .15s,background .15s}
+.btn{white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:12px;font:800 1rem Nunito,sans-serif;text-decoration:none;border:2px solid transparent;background:var(--p);color:#fff;cursor:pointer;transition:transform .15s,background .15s}
 .btn:hover{transform:translateY(-2px);background:var(--p-d)}
 .btn--sm{padding:9px 18px;font-size:.95rem}
 .btn--lg{padding:17px 30px;font-size:1.1rem}
@@ -33,7 +33,7 @@ a{color:var(--p)}
 .wa-ico{width:22px;height:22px}
 
 .hero{background:linear-gradient(160deg,var(--p-l),#fff 70%);padding:clamp(40px,8vw,88px) 0}
-.hero__in{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.hero__text{max-width:760px}
 .eyebrow{font-weight:800;color:var(--p);text-transform:uppercase;letter-spacing:.08em;font-size:.82rem}
 .lead{font-size:1.2rem;color:var(--mut);max-width:34em}
 .lead strong{color:var(--p-d)}
@@ -102,7 +102,7 @@ details p{margin:12px 0 0;color:var(--mut)}
   .brand span{font-size:1rem}
   .hero__card{padding-bottom:64px}
   .price{font-size:4.5rem}
-  .float{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:30;justify-content:center;padding:15px;border-radius:999px;background:var(--wa);color:#06361a;font-weight:800;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.28)}
+  .float{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:30;justify-content:center;padding:15px;border-radius:12px;background:var(--wa);color:#06361a;font-weight:800;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.28)}
   body{padding-bottom:84px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}

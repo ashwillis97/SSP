@@ -28,7 +28,6 @@
       <a href="#pricing">Pricing</a>
       <a href="#faq">Questions</a>
     </nav>
-    <a class="btn btn--sm" data-wa="book" href="#">Message us</a>
   </div>
 </div>
 
@@ -74,13 +73,28 @@
       </ul>
     </div>
     <div class="calc" id="calc">
-      <label for="kg">How much ironing do you have?</label>
-      <div class="calc__row">
-        <input id="kg" type="range" min="6" max="30" step="1" value="6">
-        <output id="kgout" for="kg">6 kg</output>
+      <div class="seg" role="radiogroup" aria-label="How to estimate">
+        <label><input type="radio" name="mode" value="weight" checked><span>I know the weight</span></label>
+        <label><input type="radio" name="mode" value="items"><span>I don't know the weights</span></label>
       </div>
-      <div class="calc__total"><span>Estimated price from</span><strong id="total">£24</strong></div>
-      <p class="calc__fine">Based on £4 per kilo, minimum 6 kg for pickup and drop-off. Message us for an exact price.</p>
+
+      <div id="mode-weight">
+        <label class="calc__q" for="kg">How much ironing do you have?</label>
+        <div class="calc__row">
+          <input id="kg" type="range" min="6" max="30" step="1" value="6">
+          <output id="kgout" for="kg">6 kg</output>
+        </div>
+      </div>
+
+      <div id="mode-items" hidden>
+        <p class="calc__q">How many of each do you have?</p>
+        <div class="items" id="items"></div>
+      </div>
+
+      <div class="calc__total"><span>Estimated price</span><strong id="total">£24</strong></div>
+      <p class="calc__wt" id="wtline" hidden></p>
+      <p class="calc__fine" id="fine">Based on £4 per kilo, minimum 6 kg for pickup and drop-off.</p>
+      <p class="calc__fine calc__caveat" id="caveat" hidden><strong>This is an estimate only.</strong> Item weights are approximate, and the final weight is decided when we collect your ironing.</p>
       <a class="btn btn--wa btn--block" data-wa="quote" href="#">Message us on WhatsApp</a>
     </div>
   </div>

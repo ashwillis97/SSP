@@ -3,9 +3,10 @@
 const WHATSAPP_NUMBER = "447735280207";
 const MESSAGES = {
   book:  "Hi Shelley's Steam Press, I'd like to arrange some ironing please.",
-  quote: "Hi Shelley's Steam Press, could I get a quote for some ironing please?"
+  quote: "Hi Shelley's Steam Press, could I get a price for some ironing please?",
+  offer: "Hi Shelley's Steam Press, I'd like to claim 10% off my first order please."
 };
-const PRICE_PER_KG = 3;
+const PRICE_PER_KG = 4;
 // --------------------------------------------------------------------------
 
 document.querySelectorAll("[data-wa]").forEach(a => {
@@ -26,3 +27,19 @@ if (kg) {
   update();
 }
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+// 10% off pop-up: shown once per visitor, a few seconds after arriving
+(function () {
+  const pop = document.getElementById("pop");
+  if (!pop) return;
+  try { if (localStorage.getItem("ssp_offer_seen")) return; } catch (e) {}
+  const close = () => {
+    pop.hidden = true;
+    try { localStorage.setItem("ssp_offer_seen", "1"); } catch (e) {}
+  };
+  setTimeout(() => { pop.hidden = false; document.getElementById("popx").focus(); }, 4000);
+  document.getElementById("popx").addEventListener("click", close);
+  pop.addEventListener("click", e => { if (e.target === pop) close(); });
+  pop.querySelector("[data-wa]").addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !pop.hidden) close(); });
+})();
